@@ -17,6 +17,6 @@ class UsersTableSeeder extends Seeder
             'email' => 'ryo.okazaki@asia-quest.jp',
         ]);
 
-        factory(User::class, 5)->create();
+        factory(User::class, 30)->create();
     }
 }
