@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\UserService;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class UserController extends Controller
@@ -18,13 +19,12 @@ class UserController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
+     * @param Request $request
      * @return View
      */
-    public function index(): View
+    public function index(Request $request): View
     {
-        $users = $this->service->getPagedUsers();
+        $users = $this->service->getPagedUsers($request->all());
 
         return view('users.index')->with(compact('users'));
     }
